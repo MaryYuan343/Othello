@@ -1,0 +1,80 @@
+(lang dune 3.12)
+(name Othello)
+(sections (lib .) (libexec .) (doc ../../doc/Othello))
+(files
+ (lib
+  (META
+   author.ml
+   author.mli
+   board.ml
+   board.mli
+   computerPlayer.ml
+   computerPlayer.mli
+   dune-package
+   opam
+   othello.a
+   othello.cma
+   othello.cmi
+   othello.cmt
+   othello.cmx
+   othello.cmxa
+   othello.ml
+   othello__Author.cmi
+   othello__Author.cmt
+   othello__Author.cmti
+   othello__Author.cmx
+   othello__Board.cmi
+   othello__Board.cmt
+   othello__Board.cmti
+   othello__Board.cmx
+   othello__ComputerPlayer.cmi
+   othello__ComputerPlayer.cmt
+   othello__ComputerPlayer.cmti
+   othello__ComputerPlayer.cmx
+   othello__Ui.cmi
+   othello__Ui.cmt
+   othello__Ui.cmti
+   othello__Ui.cmx
+   ui.ml
+   ui.mli))
+ (libexec (othello.cmxs))
+ (doc (README.md)))
+(library
+ (name Othello)
+ (kind normal)
+ (archives (byte othello.cma) (native othello.cmxa))
+ (plugins (byte othello.cma) (native othello.cmxs))
+ (native_archives othello.a)
+ (requires ounit2)
+ (main_module_name Othello)
+ (modes byte native)
+ (modules
+  (wrapped
+   (group
+    (alias
+     (obj_name othello)
+     (visibility public)
+     (kind alias)
+     (source (path Othello) (impl (path othello.ml-gen))))
+    (name Othello)
+    (modules
+     (module
+      (obj_name othello__Author)
+      (visibility public)
+      (source (path Author) (intf (path author.mli)) (impl (path author.ml))))
+     (module
+      (obj_name othello__Board)
+      (visibility public)
+      (source (path Board) (intf (path board.mli)) (impl (path board.ml))))
+     (module
+      (obj_name othello__ComputerPlayer)
+      (visibility public)
+      (source
+       (path ComputerPlayer)
+       (intf (path computerPlayer.mli))
+       (impl (path computerPlayer.ml))))
+     (module
+      (obj_name othello__Ui)
+      (visibility public)
+      (source (path Ui) (intf (path ui.mli)) (impl (path ui.ml))))))
+   (wrapped true))))

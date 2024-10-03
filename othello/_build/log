@@ -1,0 +1,23 @@
+# dune exec bin/main.exe
+# OCAMLPARAM: unset
+# Shared cache: disabled
+# Shared cache location: /Users/chuqiyuan/.cache/dune/db
+# Workspace root: /Users/chuqiyuan/cs3110/finalProject/othello
+# Auto-detected concurrency: 8
+# Dune context:
+#  { name = "default"
+#  ; kind = "default"
+#  ; profile = Dev
+#  ; merlin = true
+#  ; fdo_target_exe = None
+#  ; build_dir = In_build_dir "default"
+#  ; installed_env =
+#      map
+#        { "INSIDE_DUNE" :
+#            "/Users/chuqiyuan/cs3110/finalProject/othello/_build/default"
+#        ; "OCAML_COLOR" : "always"
+#        ; "OPAMCOLOR" : "always"
+#        }
+#  ; instrument_with = []
+#  }
+$ /Users/chuqiyuan/.opam/cs3110-2023fa/bin/ocamlc.opt -config > /var/folders/xc/yb7xkwtj12gc8mcvfjp3wz3h0000gn/T/dune_09f20c_output
